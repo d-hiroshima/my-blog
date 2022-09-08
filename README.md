@@ -1,34 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 技術選定
 
-## Getting Started
+Next.js
+TypeScript
+microCMS
+Vercel
 
-First, run the development server:
+ブログのフロントの構築ということでSSG（静的サイト生成）を採用している。
+サイトの高速化とSEO対策が目的。
+
+
+## ローカル環境の構築
+
+この説明はNext.jsのアプリケーションを作成した際のreadmeを流用している。
+なおパッケージ管理にはnpmを使用している。
+
+1. プロジェクトをgit cloneする。
+
+2. 下記コマンドを実行
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. ローカルにアクセスする。
+http://localhost:3000
+閲覧することができたら環境の整備は成功。
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+ディレクトリ構造については公式通りにしているので、
+気になることがあれば公式を参考にする。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## デプロイについて
+Vercelを使用している。
 
-## Learn More
+## APIについて
 
-To learn more about Next.js, take a look at the following resources:
+- usage
+https://onlymyblog.microcms.io/api/v1/blogs
+ブログ一覧とカテゴリがリターンされる。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- レスポンスの形式
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+{
+    "contents": [
+        {
+            "id": "tlejlybdq_c",
+            "createdAt": "2022-08-29T17:06:20.256Z",
+            "updatedAt": "2022-08-29T17:06:20.256Z",
+            "publishedAt": "2022-08-29T17:06:20.256Z",
+            "revisedAt": "2022-08-29T17:06:20.256Z",
+            "title": "（サンプル）まずはこの記事を開きましょう",
+            "content": "<h2 id=\"hdb41525ba7\">ブログテンプレートから作成されました🎉</h2><p>ブログテンプレートからAPIを作成しました。<br>おつかれさまでした🎉<br></p>",
+            "eyecatch": {
+                "url": "https://images.microcms-assets.io/assets/9ce3985a8c1548cca2ac3ac282a3fbf2/6c045426d90046d18a3263b98ed54945/blog-template.png",
+                "height": 630,
+                "width": 1200
+            },
+            "category": {
+                "id": "viwczuw_2u",
+                "createdAt": "2022-08-29T17:06:18.134Z",
+                "updatedAt": "2022-08-29T17:06:18.134Z",
+                "publishedAt": "2022-08-29T17:06:18.134Z",
+                "revisedAt": "2022-08-29T17:06:18.134Z",
+                "name": "更新情報"
+            }
+        }
+    ],
+    "totalCount": 1,
+    "offset": 0,
+    "limit": 10
+}
+```
