@@ -1,29 +1,34 @@
 import { Time } from "./base";
 
-export type Blog = {
-  id: number,
-  createdAt: Time,
-  updatedAt: Time,
-  publishedAt: Time,
-  revisedAt: Time,
-  title: string,
-  content: string
+export type Nav = {
+  title: string;
+  href?: string;
 }
 
+export type Blog = {
+  id: number;
+  createdAt: Time;
+  updatedAt: Time;
+  publishedAt: Time;
+  revisedAt: Time;
+  title: string;
+  content: string;
+  tag: Array<string>;
+}
 
 export type Category = {
-  id: number,
-  createdAt: Time,
-  updatedAt: Time,
-  publishedAt: Time,
-  revisedAt: Time,
-  name: string|undefined
+  id: number;
+  createdAt: Time;
+  updatedAt: Time;
+  publishedAt: Time;
+  revisedAt: Time;
+  name: string|undefined;
 }
 
 export type Eyecatch = {
-  url: string,
-  height: number,
-  width: number,
+  url: string;
+  height: number;
+  width: number;
 }
 
 export type totalCount = number;
