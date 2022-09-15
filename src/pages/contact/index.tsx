@@ -2,11 +2,6 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styles from '../../styles/Contact.module.css'
 
-// components
-import HeadContents from "../layouts/HeadContents"
-import Header from "../layouts/Header"
-import Footer from "../layouts/Footer"
-
 const titleClass: string = "text-5xl font-bold text-left";
 
 
@@ -27,9 +22,6 @@ const Contact: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <HeadContents />
-
-      <Header />
       <main className={`mx-auto px-8 ${styles.main}`}>
       <div className={styles.grid}>
 
@@ -40,7 +32,6 @@ const Contact: NextPage = () => {
       </div>
       
       </main>
-      <Footer />
     </div>
   )
 }

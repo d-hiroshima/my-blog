@@ -1,5 +1,6 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import { ParsedUrlQuery } from 'node:querystring'
 import Link from "next/link";
 import styles from '../../styles/Blog.module.css'
 import Moment from 'react-moment'
@@ -7,22 +8,18 @@ import Moment from 'react-moment'
 import { client } from "../../../libs/client";
 import { Blog } from "../../types/blog";
 
-// components
-import HeadContents from "./../layouts/HeadContents"
-import Header from "./../layouts/Header"
-import Footer from "./../layouts/Footer"
+interface Params extends ParsedUrlQuery {
+  id: string
+}
 
 type Props = {
   blog: Blog;
 };
 
 const Blog: NextPage<Props> = ({ blog }: Props) => {
-  console.log(blog)
+  
   return (
     <div className={styles.container}>
-      <HeadContents />
-
-      <Header />
       <main className={`mx-auto px-8 ${styles.blog_main}`}>
 
         <h1 className="text-4xl text-center">{blog.title}</h1>
@@ -35,15 +32,12 @@ const Blog: NextPage<Props> = ({ blog }: Props) => {
           }}
         />
       </main>
-
-      <Footer />
     </div>
   )
 }
 
 
-// 静的生成のためのパスを指定します
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const data = await client.get<MicroCMSListResponse<Blog>>({
     endpoint: "blogs",
   });
@@ -52,10 +46,8 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-// データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps: GetStaticProps = async (context) => {
-  console.log(context);
-  const id = context.params.id;
+export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
+  const id = context.params?.id;
   const data = await client.get({ endpoint: "blogs", contentId: id });
 
   return {
@@ -64,4 +56,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
+
 export default Blog;

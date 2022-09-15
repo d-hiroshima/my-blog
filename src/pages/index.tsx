@@ -8,10 +8,6 @@ import Moment from 'react-moment'
 import { client } from "../../libs/client";
 import { Blog } from "../types/blog";
 
-// components
-import HeadContents from "./layouts/HeadContents"
-import Header from "./layouts/Header"
-import Footer from "./layouts/Footer"
 
 type Props = {
   blog: Blog[];
@@ -20,9 +16,6 @@ type Props = {
 const Home: NextPage<Props> = ({ blog }: Props) => {
   return (
     <div className={styles.container}>
-      <HeadContents />
-
-      <Header />
       <main className={`mx-auto px-8 ${styles.main}`}>
 
         <h1 className="text-6xl font-bold text-center">
@@ -70,8 +63,6 @@ const Home: NextPage<Props> = ({ blog }: Props) => {
             </div>
           </div>
       </main>
-
-      <Footer />
     </div>
   )
 }

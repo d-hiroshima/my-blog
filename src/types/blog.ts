@@ -2,7 +2,7 @@ import { Time } from "./base";
 
 export type Nav = {
   title: string;
-  href?: string;
+  href: string | undefined;
 }
 
 export type Blog = {
@@ -13,6 +13,7 @@ export type Blog = {
   revisedAt: Time;
   title: string;
   content: string;
+  category: Array<string>
   tag: Array<string>;
 }
 
@@ -25,12 +26,3 @@ export type Category = {
   name: string|undefined;
 }
 
-export type Eyecatch = {
-  url: string;
-  height: number;
-  width: number;
-}
-
-export type totalCount = number;
-export type offset = number;
-export type limit = number;

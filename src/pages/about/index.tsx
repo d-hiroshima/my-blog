@@ -2,10 +2,6 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styles from '../../styles/About.module.css'
 
-// components
-import HeadContents from "../layouts/HeadContents"
-import Header from "../layouts/Header"
-import Footer from "../layouts/Footer"
 
 const titleClass: string = "text-5xl font-bold text-left";
 
@@ -48,9 +44,6 @@ const About: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <HeadContents />
-
-      <Header />
       <main className={`mx-auto px-8 ${styles.main}`}>
         <div className={styles.grid}>
           <h2 className={titleClass}>Elemmmについて</h2>
@@ -85,7 +78,6 @@ const About: NextPage = () => {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

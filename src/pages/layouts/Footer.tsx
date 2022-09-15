@@ -1,7 +1,5 @@
 
 import type { NextPage } from "next";
-import Head from 'next/head'
-import Image from 'next/image'
 import Link from "next/link"
 import styles from '../../styles/Home.module.css'
 
@@ -50,7 +48,7 @@ const Footer = () => {
 				<ul className="text-sm text-gray-700 list-none p-0 flex items-center">
 					{ nav.map((item: Nav, key: number) => (
 						<li key={key} className="inline-block py-2 px-3 text-black hover:text-gray-300">
-							<Link href={item.href}>
+							<Link href={`${item.href}`}>
 								{item.title}
 							</Link>
 						</li>
