@@ -15,7 +15,7 @@ const titleClass: string = "text-5xl font-bold text-left";
  */
 const whatElemmm: string = `
 Elemmmは日々の仕事での学びや知見、
-プライベートで得た気づきを共有するブログです。
+プライベートで得た気づきを自分への一要素として取り込み、また共有するためのブログです。
 ブログの制作にはフロントエンドではNext.js + tailwind.css、
 バックエンドではmicroCMSを採用しています。
 `;
@@ -31,7 +31,7 @@ const aboutMe: string = `
 ・DB
   PostgreSQL・SQLite3
 
-趣味はカメラ・音楽鑑賞（ロック・ヒップホップ・エレクトロ・EDM）・ドライブ・ロードバイクでツーリング・ゲーム・パソコンパーツ漁り・飲み歩きなどなど。
+趣味はカメラ・音楽鑑賞（ロック・ヒップホップ・エレクトロ・EDM）・ドライブ・ロードバイクでツーリング・ゲーム・飲み歩きなどなど。
 `
 
 const howToContact: string = `

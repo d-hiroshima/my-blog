@@ -1,5 +1,5 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Image from 'next/image'
 import Link from "next/link";
 import styles from '../styles/Home.module.css'
@@ -18,7 +18,6 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ blog }: Props) => {
-  console.log(blog)
   return (
     <div className={styles.container}>
       <HeadContents />
@@ -42,28 +41,30 @@ const Home: NextPage<Props> = ({ blog }: Props) => {
 
               {blog.map((item) => (
                 <Link href={`./blog/${item.id}`} key={item.id}> 
-                  <div className="rounded overflow-hidden shadow-lg link-content">
-                    {/* <img className="w-full" src="/mountain.jpg" alt="Mountain"/> */}
-                    <div className="px-6 py-4">
-                      <div className="my-2">
-                        <Moment format="YYYY.MM.DD HH:mm">
-                          {item.publishedAt}
-                        </Moment>
+                  <a>
+                    <div className="rounded border-solid border-opacity-75 overflow-hidden shadow-xl link-content">
+                      {/* <img className="w-full" src="/mountain.jpg" alt="Mountain"/> */}
+                      <div className="px-6 py-4">
+                        <div className="my-2">
+                          <Moment format="YYYY.MM.DD">
+                            {item.publishedAt}
+                          </Moment>
+                        </div>
+                        <div className="font-bold text-xl mb-2">{item.title}</div>
+                        <p className="text-gray-700 text-base">
+                        </p>
                       </div>
-                      <div className="font-bold text-xl mb-2">{item.title}</div>
-                      <p className="text-gray-700 text-base">
-                      </p>
+                      <div className="px-6 pt-4 pb-2">
+                        {
+                          item.tag.length > 0 ? (
+                            item.tag.map((value, key) => <span key={key} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{value}</span>)
+                          ) : (
+                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#notag</span>
+                          )
+                        }
+                      </div>
                     </div>
-                    <div className="px-6 pt-4 pb-2">
-                      {
-                        item.tag.length > 0 ? (
-                          item.tag.map((value, key) => <span key={key} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{value}</span>)
-                        ) : (
-                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#notag</span>
-                        )
-                      }
-                    </div>
-                  </div>
+                  </a>
                 </Link>
               ))}
             </div>
@@ -76,7 +77,7 @@ const Home: NextPage<Props> = ({ blog }: Props) => {
 }
 
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get<MicroCMSListResponse<Blog>>({
     endpoint: "blogs",
   });

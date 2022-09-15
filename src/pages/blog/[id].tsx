@@ -1,8 +1,7 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import type { NextPage } from "next";
-import Image from 'next/image'
+import type { NextPage, GetStaticProps } from "next";
 import Link from "next/link";
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Blog.module.css'
 import Moment from 'react-moment'
 
 import { client } from "../../../libs/client";
@@ -14,7 +13,7 @@ import Header from "./../layouts/Header"
 import Footer from "./../layouts/Footer"
 
 type Props = {
-  blog: Blog[];
+  blog: Blog;
 };
 
 const Blog: NextPage<Props> = ({ blog }: Props) => {
@@ -24,14 +23,15 @@ const Blog: NextPage<Props> = ({ blog }: Props) => {
       <HeadContents />
 
       <Header />
-      <main className={`mx-auto px-8 ${styles.main}`}>
+      <main className={`mx-auto px-8 ${styles.blog_main}`}>
 
-        <p className={styles.description}></p>
-        <h1>{blog.title}</h1>
-        <p>{blog.publishedAt}</p>
+        <h1 className="text-4xl text-center">{blog.title}</h1>
+        <p className="my-8">
+          投稿日 <Moment format="YYYY.MM.DD">{blog.publishedAt}</Moment>&nbsp;&nbsp;更新日 <Moment format="YYYY.MM.DD">{blog.updatedAt}</Moment>
+        </p>
         <div
           dangerouslySetInnerHTML={{
-            __html: `${blog.body}`,
+            __html: `${blog.content}`,
           }}
         />
       </main>
@@ -53,10 +53,10 @@ export const getStaticPaths = async () => {
 };
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   console.log(context);
   const id = context.params.id;
-  const data = await client.get({ endpoint: "blog", contentId: id });
+  const data = await client.get({ endpoint: "blogs", contentId: id });
 
   return {
     props: {
