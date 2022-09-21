@@ -1,5 +1,18 @@
 /* tailwind cssの読み込み */
 @tailwind base;
+
+h1 {
+  @apply text-xl;
+  margin: revert;
+}
+h2 {
+  @apply text-3xl;
+  margin: revert;
+}
+h3 {
+  @apply text-xl;
+}
+
 @tailwind components;
 @tailwind utilities;
 
