@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ blog }: Props) => {
             グリッドの個数を変更する場合はgrid-cols-{number}を変更する。
             記事リストを一列にするにはclassのgridを削除する。
           */}
-            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
+            <div className="p-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
 
               {blog.map((item) => (
                 <Link href={`./blog/${item.id}`} key={item.id}> 

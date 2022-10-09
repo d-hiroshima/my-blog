@@ -25,7 +25,7 @@ const Header = () => {
     <header className='relative z-10 bg-white ring-1 ring-gray-900 ring-opacity-20 shadow-sm'>
 			<nav className="font-sans text-center flex justify-between mx-auto container overflow-hidden h-14">
 				<Link href="/">
-					<a className="block text-left text-black w-full h-full text-4xl font-bold flex items-center">
+					<a className="block text-left text-black h-full text-4xl font-bold flex items-center">
 						Elemmm
 					</a>
 				</Link>
