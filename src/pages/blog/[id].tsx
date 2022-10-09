@@ -28,7 +28,7 @@ const Blog: NextPage<Props> = ({ blog, highlightedContent }: Props) => {
     <div className={styles.container}>
       <main className={`mx-auto px-8 ${styles.blog_main}`}>
 
-        <h1 className="text-4xl text-center">{blog.title}</h1>
+        <h1 className="text-2xl text-center">{blog.title}</h1>
         <p className="my-8">
           投稿日 <Moment format="YYYY.MM.DD">{blog.publishedAt}</Moment>&nbsp;&nbsp;更新日 <Moment format="YYYY.MM.DD">{blog.updatedAt}</Moment>
         </p>
