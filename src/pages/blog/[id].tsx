@@ -1,9 +1,14 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import { ParsedUrlQuery } from 'node:querystring'
+import { ParsedUrlQuery } from 'node:querystring';
 import Link from "next/link";
-import styles from '../../styles/Blog.module.css'
+import styles from '../../styles/Blog.module.css';
+
+// npm package
 import Moment from 'react-moment'
+import cheerio from 'cheerio';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/night-owl.css';
 
 import { client } from "../../../libs/client";
 import { Blog } from "../../types/blog";
@@ -14,9 +19,10 @@ interface Params extends ParsedUrlQuery {
 
 type Props = {
   blog: Blog;
+  highlightedContent: string;
 };
 
-const Blog: NextPage<Props> = ({ blog }: Props) => {
+const Blog: NextPage<Props> = ({ blog, highlightedContent }: Props) => {
   
   return (
     <div className={styles.container}>
@@ -28,7 +34,7 @@ const Blog: NextPage<Props> = ({ blog }: Props) => {
         </p>
         <div
           dangerouslySetInnerHTML={{
-            __html: `${blog.content}`,
+            __html: `${highlightedContent}`,
           }}
         />
       </main>
@@ -50,9 +56,18 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
   const id = context.params?.id;
   const data = await client.get({ endpoint: "blogs", contentId: id });
 
+  const $ = cheerio.load(data.content)
+
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass('hljs')
+  })
+
   return {
     props: {
       blog: data,
+      highlightedContent: $.html(),
     },
   };
 };
