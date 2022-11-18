@@ -33,7 +33,7 @@ const Blog: NextPage<Props> = ({ blog, highlightedContent }: Props) => {
           投稿日 <Moment format="YYYY.MM.DD">{blog.publishedAt}</Moment>&nbsp;&nbsp;更新日 <Moment format="YYYY.MM.DD">{blog.updatedAt}</Moment>
         </p>
         <div
-          className="article"
+          className="article break-all"
           dangerouslySetInnerHTML={{
             __html: `${highlightedContent}`,
           }}
