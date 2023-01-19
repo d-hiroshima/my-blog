@@ -17,13 +17,6 @@ const Home: NextPage<Props> = ({ blog }: Props) => {
   return (
     <div className={styles.container}>
       <main className={`mx-auto px-8 ${styles.main}`}>
-
-        <h1 className="text-6xl font-bold text-center">
-          Welcome to <span className={styles.mainTitle}>Elemmm</span>.
-        </h1>
-
-        <p className={styles.description}></p>
-
         <div className={styles.grid}>
           {/*
             レイアウトについてのカスタム

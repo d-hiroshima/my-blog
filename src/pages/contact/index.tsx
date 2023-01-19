@@ -9,7 +9,6 @@ const titleClass: string = "text-5xl font-bold text-left";
  * 説明テキスト↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  */
 const contactText: string = `
-d.hiroshima777@gmail.comか
 各種SNSのDMからご連絡ください。
 `;
 /**

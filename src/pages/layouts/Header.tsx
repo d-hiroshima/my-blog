@@ -1,5 +1,6 @@
 import type { NextPage } from "next"
 import Link from "next/link"
+import styles from "../../styles/Home.module.css";
 
 import { Nav } from "../../types/blog";
 
@@ -25,8 +26,8 @@ const Header = () => {
     <header className='relative z-10 bg-white ring-1 ring-gray-900 ring-opacity-20 shadow-sm'>
 			<nav className="font-sans text-center flex justify-between mx-auto container overflow-hidden h-14">
 				<Link href="/">
-					<a className="block text-left text-black h-full text-4xl font-bold flex items-center">
-						Elemmm
+					<a className="block text-left text-black h-full text-4xl font-bold flex items-center {styles.mainTitle}">
+            <span className={styles.mainTitle}>Elemmm</span>
 					</a>
 				</Link>
 				<ul className="text-sm text-gray-700 list-none p-0 flex items-center">
