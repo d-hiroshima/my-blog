@@ -24,16 +24,6 @@ const nav: Nav[] = [
 
 // 外部サービス変数
 const serviceAccount: ServiceAccount[] = [
-	{
-		name: "github",
-		url: "/",
-		icon: ""
-	},
-	{
-		name: "qiita",
-		url: "/",
-		icon: ""
-	},
 ]
 
 
