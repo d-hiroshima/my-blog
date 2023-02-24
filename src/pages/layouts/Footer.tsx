@@ -1,10 +1,10 @@
-
 import type { NextPage } from "next";
 import Link from "next/link"
 import styles from '../../styles/Home.module.css'
 
+// Components
+import Sns from '../parts/Sns'
 import { Nav } from "../../types/blog";
-import { ServiceAccount } from "../../types/base";
 
 // ナビ変数
 const nav: Nav[] = [
@@ -22,20 +22,14 @@ const nav: Nav[] = [
   },
 ]
 
-// 外部サービス変数
-const serviceAccount: ServiceAccount[] = [
-]
-
-
-
 const Footer = () => {
   return(
     <footer className={styles.footer}>
 			<nav
-				className="text-center"
+				className="text-center text-base"
 			>
 				©2022 Elemmm
-				<ul className="text-sm text-gray-700 list-none p-0 flex items-center">
+				<ul className="text-gray-700 list-none mb-3 flex justify-center">
 					{ nav.map((item: Nav, key: number) => (
 						<li key={key} className="inline-block py-2 px-3 text-black hover:text-gray-300">
 							<Link href={`${item.href}`}>
@@ -44,6 +38,7 @@ const Footer = () => {
 						</li>
 					))}
 				</ul>
+				<Sns />
 			</nav>
     </footer>
   )

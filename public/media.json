@@ -1,0 +1,22 @@
+{
+  "github": {
+    "name": "github",
+    "url": "https://github.com/d-hiroshima",
+    "img": "/images/github-mark.png"
+  },
+  "twitter": {
+    "name": "twitter",
+    "url": "https://twitter.com/magic_rooom",
+    "img": "/images/twitter_64.jpeg"
+  },
+  "instagram": {
+    "name": "instagram",
+    "url": "https://www.instagram.com/da__xcam",
+    "img": "/images/Instagram_Glyph_Gradient.png"
+  },
+  "qiita": {
+    "name": "qiita",
+    "url": "https://qiita.com/boboboy_",
+    "img": "/images/qiita.png"
+  }
+}

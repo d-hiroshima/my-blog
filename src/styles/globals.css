@@ -51,6 +51,13 @@ a {
   border-color: #0070f3;
 }
 
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
 /* ダークモードの設定 */
 /* @media (prefers-color-scheme: dark) {
   html {

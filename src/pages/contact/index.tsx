@@ -1,21 +1,18 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import styles from '../../styles/Contact.module.css'
+import Sns from "pages/parts/Sns";
 
 const titleClass: string = "text-5xl font-bold text-left";
-
 
 /**
  * 説明テキスト↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  */
 const contactText: string = `
-d.hiroshima777@gmail.comからご連絡ください。
+各種SNSのDMからご連絡ください。
 `;
 /**
  * 説明テキスト↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
  */
-
-
 
 const Contact: NextPage = () => {
 
@@ -27,6 +24,7 @@ const Contact: NextPage = () => {
           <div className={styles.description}>
             {contactText}
           </div>
+          <Sns />
         </div>
       </main>
     </div>
