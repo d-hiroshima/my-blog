@@ -20,7 +20,7 @@ const Sns = () => {
               <li key={key} className="inline-block hover:text-gray-300">
                 <Link href={`${item[1].url}`}>
                   <a target="_blank">
-                    <Image loading="lazy" decoding="async" width={35} height={35} src={item[1].img} alt={item[1].name} />
+                    <img src={item[1].img} width="35" height="35" />
                   </a>
                 </Link>
               </li>
