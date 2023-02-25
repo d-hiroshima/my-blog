@@ -1,13 +1,11 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { NextPage, GetStaticProps } from "next";
-import Image from 'next/image'
 import Link from "next/link";
 import styles from '../styles/Home.module.css'
 import Moment from 'react-moment'
 
 import { client } from "../../libs/client";
 import { Blog } from "../types/blog";
-
 
 type Props = {
   blog: Blog[];

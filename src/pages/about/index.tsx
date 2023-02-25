@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import styles from '../../styles/About.module.css'
 
 
@@ -38,8 +39,6 @@ contactページにございますメールアドレス・各種媒体・SNSのD
  * 説明テキスト↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
  */
 
-
-
 const About: NextPage = () => {
 
   return (
@@ -67,6 +66,12 @@ const About: NextPage = () => {
             運営者について
           </h2>
           <div className={styles.description}>
+            <Image 
+              src="/images/avatar.png"
+              alt="avatar"
+              width={300}
+              height={300} 
+            />
             {aboutMe}
           </div>
 
@@ -81,7 +86,5 @@ const About: NextPage = () => {
     </div>
   )
 }
-
-
 
 export default About;
